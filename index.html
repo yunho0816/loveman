@@ -63,7 +63,7 @@
   <script>
     const button = document.getElementById('btn');
 
-    button.addEventListener('click', function (e) {
+    button.addEventListener('click', function () {
       const rect = button.getBoundingClientRect();
 
       // 하트 여러 개 생성
@@ -72,7 +72,6 @@
         heart.className = 'heart';
         heart.innerText = '❤';
 
-        // 버튼 중심 기준 랜덤 위치
         const x = rect.left + rect.width / 2 + (Math.random() * 60 - 30);
         const y = rect.top + rect.height / 2 + (Math.random() * 20 - 10);
 
@@ -81,16 +80,15 @@
 
         document.body.appendChild(heart);
 
-        // 애니메이션 끝나면 제거
         setTimeout(() => {
           heart.remove();
         }, 1200);
       }
 
-      // 약간의 텀 후 새 탭 열기
+      // ⏱️ 2초 후 새 탭 열기
       setTimeout(() => {
         window.open('love.html', '_blank');
-      }, 300);
+      }, 2000);
     });
   </script>
 
