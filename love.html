@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>사랑합니다</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Noto Sans KR", sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      /* 🌸 명확한 꽃밭 사진 */
+      background-image: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* 글자 가독성을 위한 어두운 레이어 */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text {
+      color: #ffffff;
+      font-size: clamp(36px, 6vw, 88px);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="overlay">
+      <div class="text">사랑합니다</div>
+    </div>
+  </div>
+</body>
+</html>

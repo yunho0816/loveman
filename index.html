@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>눌러보세요</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      background: #ffffff;
+      font-family: system-ui, -apple-system, "Noto Sans KR", sans-serif;
+    }
+
+    button {
+      padding: 16px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      background: #ff6b81;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    button:hover {
+      background: #ff4757;
+    }
+
+    /* 하트 공통 스타일 */
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: #ff4757;
+      animation: floatUp 1.2s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120px) scale(1.6);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="btn">눌러보세요</button>
+
+  <script>
+    const button = document.getElementById('btn');
+
+    button.addEventListener('click', function (e) {
+      const rect = button.getBoundingClientRect();
+
+      // 하트 여러 개 생성
+      for (let i = 0; i < 12; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerText = '❤';
+
+        // 버튼 중심 기준 랜덤 위치
+        const x = rect.left + rect.width / 2 + (Math.random() * 60 - 30);
+        const y = rect.top + rect.height / 2 + (Math.random() * 20 - 10);
+
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
+
+        document.body.appendChild(heart);
+
+        // 애니메이션 끝나면 제거
+        setTimeout(() => {
+          heart.remove();
+        }, 1200);
+      }
+
+      // 약간의 텀 후 새 탭 열기
+      setTimeout(() => {
+        window.open('love.html', '_blank');
+      }, 300);
+    });
+  </script>
+
+</body>
+</html>
